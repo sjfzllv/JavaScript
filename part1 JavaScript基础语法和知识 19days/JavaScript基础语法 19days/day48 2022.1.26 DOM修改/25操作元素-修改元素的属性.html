@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <button id="xka1">小可爱1</button>
+    <button id="xka2">小可爱2</button><br>
+    <img src="./25demo-img1.jpg" alt="" title="小可爱1">
+    <script>
+        // 修改元素属性 src
+        // 1. 获取元素
+        var xka1 = document.getElementById('xka1'); 
+        var xka2 = document.getElementById('xka2');
+        var img = document.querySelector('img');
+        // 2. 注册事件
+        xka1.onclick = function() {
+            img.src = './25demo-img1.jpg';
+            img.title = '小可爱1';
+        }
+        xka2.onclick = function() {
+            img.src = './25demo-img2.jpg';
+            img.title = '小可爱2';
+        }
+    </script>
+</body>
+</html>

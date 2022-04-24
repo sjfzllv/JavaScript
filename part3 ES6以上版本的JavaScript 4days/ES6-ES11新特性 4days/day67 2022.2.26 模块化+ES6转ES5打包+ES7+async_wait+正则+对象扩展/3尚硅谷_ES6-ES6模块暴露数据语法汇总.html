@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 模块化</title>
+</head>
+<body>
+    <script type = 'module'>
+        // 引入 m1.js 模块内容
+        import * as m1 from './js/m1.js';
+        console.log(m1);
+        // 引入 m2.js 模块内容
+        import * as m2 from './js/m2.js';
+        console.log(m2);
+        // 引入 m3.js 模块内容
+        import * as m3 from './js/m3.js';
+        console.log(m3);
+        m3.default.change();
+    </script>
+</body>
+</html>

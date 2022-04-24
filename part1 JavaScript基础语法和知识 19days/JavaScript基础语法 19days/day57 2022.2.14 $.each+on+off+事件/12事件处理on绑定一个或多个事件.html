@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .current {
+            background-color: purple;
+        }
+    </style>
+    <script src="../day55 2022.2.9 bootstrap+localStorage/jquery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            // 1. 单个事件注册
+            $('div').click(function() {
+                $(this).css('background', 'purple');
+            })
+            $('div').mouseenter(function() {
+                $(this).css('background', 'skyblue');
+            })
+
+            // 2. 事件处理on
+            // $('div').on({
+            //     mouseenter: function() {
+            //         $(this).css('background', 'purple');
+            //     },
+            //     click: function() {
+            //         $(this).css('background', 'skyblue');
+            //     },
+            //     mouseleave: function() {
+            //         $(this).css('background', 'blue');
+            //     }
+            // })
+            $('div').on('mouseenter mouseleave', function() {
+                $(this).toggleClass('current');
+            })
+        })
+    </script>
+</body>
+</html>

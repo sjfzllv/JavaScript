@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #58a;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+        // 需求-1  点击 div 2s 后颜色变成『粉色』
+        // 获取元素
+        let ad = document.getElementById('ad');
+        ad.addEventListener('click', function() {
+            // 保存 this 的值
+            // let that / _this / self
+            // let _this = this;
+            // 定时器
+            // setTimeout(function() {
+            //     // 修改背景颜色 this
+            //     console.log(this);  // window
+            //     _this.style.background = 'pink';
+            // }, 2000)
+
+            setTimeout(() => {
+                this.style.background = 'pink';
+            }, 2000);
+        })
+        // 需求-2  从数组中返回偶数的元素
+        const arr = [1, 6, 9, 10, 100, 25];
+        // const result = arr.filter(function(item) {
+        //     if (item % 2 === 0) {
+        //         return true; 
+        //     } else {
+        //         return false;
+        //     }
+        // });
+        // console.log(result);
+
+        const result = arr.filter(item => item % 2 === 0);
+
+        // 箭头函数适合与 this 无关的回调。定时器，数组的方法回调
+        // 箭头函数不适合与 this 有关的回调。事件回调，对象的方法
+        
+        // {
+            // name: '尚硅谷',
+            // getName: function() {
+            //     this.name;
+            // }
+            // getName: () => {
+            //     this.name;
+            // }
+        // }
+    </script>
+</body>
+</html>
+
+<!-- 
+    filter()的基本语法如下：
+    var newArray = arr.filter(arg_function[, this_arg])
+    filter()函数的参数是另一个函数，它定义要为数组的每个元素检查的条件。
+    这个arg_function本身有三个参数：
+        array：这是调用.filter()函数的数组
+        index：这是函数处理的当前元素的索引。
+        element：这是函数正在处理的当前元素。
+    另一个参数this_arg用于表示函数在执行参数函数时使用此值。 
+-->

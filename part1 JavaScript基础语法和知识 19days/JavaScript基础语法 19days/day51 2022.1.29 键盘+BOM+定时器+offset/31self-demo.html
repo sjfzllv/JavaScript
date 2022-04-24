@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .myimg {
+            display: none;
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .myimg span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(20%, -20%);
+            display: block;
+            padding: 4px 6px;
+            background-color: #fff;
+            border-radius: 6px;
+            color: #888;
+            transition: all .4s;
+            cursor: pointer;
+        }
+
+        button {
+            color: #353535;
+            transition: all .4s;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-color: #e97730;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover,
+        .myimg span:hover {
+            text-decoration: underline;
+            color: pink;
+        }
+
+        .cover {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgba(0, 0, 0, .2);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <button>我的图片</button>
+    <div class="cover"></div>
+    <div class="myimg">
+        <img src="./10demo-img1.png" alt="">
+        <span>退出</span>
+    </div>
+
+    <script>
+        var button = document.querySelector('button');
+        var cover = document.querySelector('.cover');
+        var myimg = document.querySelector('.myimg');
+        var myclose = document.querySelector('span');
+        button.addEventListener('click', function() {
+            myimg.style.display = 'block';
+            cover.style.display = 'block';
+        })
+        myclose.addEventListener('click', function() {
+            myimg.style.display = 'none';
+            cover.style.display = 'none';
+        })
+        myimg.addEventListener('mousedown', function(e) {
+            var x = e.pageX - myimg.offsetLeft;
+            var y = e.pageY - myimg.offsetTop;
+            function move(e) {
+                myimg.style.left = e.pageX - x + 'px';
+                myimg.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mousemove', move)
+        })
+        document.addEventListener('mouseup', function() {
+            document.removeEventListener('mousemove', move);
+        })
+
+    </script>
+</body>
+</html>

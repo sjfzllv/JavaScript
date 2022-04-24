@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+<body>
+    <script>
+        // 扩展运算符可以将数组拆分成以逗号分隔的参数序列
+        // let ary = ['a', 'b', 'c'];
+        // ...ary   -->   'a', 'b', 'c'
+        // console.log(...ary);
+        // console.log('a', 'b', 'c');
+
+        // 扩展运算符应用于数组合并
+        let ary1 = [1, 2, 3];
+        let ary2 = [4, 5, 6];
+        // ...ary1 // 1, 2, 3
+        // ...ary2 // 4, 5, 6
+        let ary3 = [...ary1, ...ary2];
+        console.log(ary3);
+
+        // 合并数组的第二种方法
+        ary1.push(...ary2);
+        console.log(ary1);
+    </script>
+</body>
+</html>
